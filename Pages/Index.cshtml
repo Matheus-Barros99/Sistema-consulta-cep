@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Olá, seja bem vindo ao sistema de consultas de CEP!</h1>
+    <br />
+    <br />
+    <h3>
+        Deseja consultar um CEP?
+    </h3>
+    <br />
+    <a class="btn btn-primary fw-bold text-center align-self-end"
+            style="background-color: #005b96; border-color: #005b96; width: 180px; height: 40px"
+            href="@Url.Content("~/ConsultaCEP")">
+        Clique aqui
+    </a>
+</div>

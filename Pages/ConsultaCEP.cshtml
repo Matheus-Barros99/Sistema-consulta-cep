@@ -1,0 +1,49 @@
+﻿@page
+@model TesteCandidato1.Pages.ConsultaCEPModel
+@{
+    ViewData["Title"] = "Consultar CEP";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Consulta de CEP</h1>
+    <br />
+    <br />
+    @if (!string.IsNullOrEmpty(Model.MensagemErro))
+    {
+        <div class="alert alert-danger text-center" role="alert">
+            @Model.MensagemErro
+        </div>
+        <br />
+    }
+    <form method="post">
+        <div class="form-group">
+            <label for="cep">Digite o CEP:</label>
+            <div class="d-flex justify-content-center">
+                <input type="text" style="width: 250px" id="cepInformado" name="cepInformado" class="form-control mr-2" maxlength="8" required
+                       oninput="this.value = this.value.replace(/[^0-9]/g, '')" />&nbsp;
+                <button type="submit" class="btn btn-primary">Consultar</button>
+            </div>
+        </div>
+    </form>
+
+    @if (Model.CepInfo != null)
+    {
+        <div class="mt-4">
+            <h3>Informações do CEP:</h3>
+            <table class="table table-bordered w-auto mx-auto">
+                <tbody>
+                    <tr><th>CEP</th><td>@Model.CepInfo.Cep1</td></tr>
+                    <tr><th>Logradouro</th><td>@Model.CepInfo.Logradouro</td></tr>
+                    <tr><th>Complemento</th><td>@Model.CepInfo.Complemento</td></tr>
+                    <tr><th>Bairro</th><td>@Model.CepInfo.Bairro</td></tr>
+                    <tr><th>Localidade</th><td>@Model.CepInfo.Localidade</td></tr>
+                    <tr><th>Estado</th><td>@Model.CepInfo.Uf</td></tr>
+                    <tr><th>Unidade</th><td>@Model.CepInfo.Unidade</td></tr>
+                    <tr><th>IBGE</th><td>@Model.CepInfo.Ibge</td></tr>
+                    <tr><th>GIA</th><td>@Model.CepInfo.Gia</td></tr>
+                </tbody>
+            </table>
+        </div>
+    }
+
+
